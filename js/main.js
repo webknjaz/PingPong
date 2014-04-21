@@ -62,6 +62,8 @@
 
 		navigator.getUserMedia({video: true}, function (stream) {
 			video.src = window.webkitURL ? window.webkitURL.createObjectURL(stream) : stream;
+		}, function() {
+			throw new Error('To play this game you should allow using camera first.');
 		});
 
 		requestAnimationFrame(tick);
